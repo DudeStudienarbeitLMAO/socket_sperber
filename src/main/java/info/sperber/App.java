@@ -1,50 +1,39 @@
 package info.sperber;
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 
 /**
  * Hello world!
  *
  */
-public class App
+public class App 
 {
-    private static void handleConnection(Socket client) throws IOException {
-        Scanner in = new Scanner(client.getInputStream());
-        PrintWriter out = new PrintWriter(client.getOutputStream(), true);
-
-        String input = in.nextLine();
-
-        out.println(String.format("You entered: %s", input));
-    }
+	static ConcurrentLinkedQueue<String> messages;
 
     public static void main( String[] args ) throws IOException
     {
-        ServerSocket server = new ServerSocket(4321);
+		messages = new ConcurrentLinkedQueue<String>();
 
-        while(true) {
-            Socket client = null;
+		ServerSocket server = new ServerSocket(4321);
+		Chatroom room = new Chatroom();
 
-            try {
-                client = server.accept();
-                handleConnection(client);
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            finally {
-                if(client != null)
-                    try {
-                        client.close();
-                    }
-                    catch (IOException e) {
+		while(true) {
+			Socket socket = server.accept();
 
-                    }
-            }
-        }
+			if(socket == null)
+				continue;
+
+			room.addClient(socket);
+		}
     }
+
+
 
 }
