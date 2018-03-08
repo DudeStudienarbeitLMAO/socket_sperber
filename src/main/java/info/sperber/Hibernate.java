@@ -22,5 +22,12 @@ public class Hibernate {
 
         Hairdresser hd = new Hairdresser();
         hd.setName("Sudoko Lover Extreme");
+
+        p.setFavouriteHairdresser(hd);
+
+        manager.getTransaction().begin();
+        manager.persist(p);
+        manager.persist(hd);
+        manager.getTransaction().commit();
     }
 }
