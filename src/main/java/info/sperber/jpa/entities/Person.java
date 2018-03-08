@@ -3,10 +3,7 @@ package info.sperber.jpa.entities;
 import lombok.Data;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by fabian on 3/8/18.
@@ -22,5 +19,6 @@ public class Person {
     private String firstName;
     private String lastName;
 
+    @ManyToOne
     private Hairdresser favouriteHairdresser;
 }

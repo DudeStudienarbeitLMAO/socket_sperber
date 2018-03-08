@@ -1,5 +1,6 @@
 package info.sperber;
 
+import info.sperber.jpa.entities.Hairdresser;
 import info.sperber.jpa.entities.Person;
 
 import javax.persistence.EntityManager;
@@ -16,6 +17,10 @@ public class Hibernate {
         EntityManager manager = factory.createEntityManager();
 
         Person p = new Person();
+        p.setFirstName("Lalf");
+        p.setLastName("Rausen");
 
+        Hairdresser hd = new Hairdresser();
+        hd.setName("Sudoko Lover Extreme");
     }
 }
