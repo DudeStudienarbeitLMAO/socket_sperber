@@ -1,4 +1,4 @@
-package info.sperber;
+package info.sperber.jpa;
 
 import info.sperber.jpa.entities.Hairdresser;
 import info.sperber.jpa.entities.Person;

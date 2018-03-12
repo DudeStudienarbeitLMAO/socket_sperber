@@ -1,4 +1,4 @@
-package info.sperber;
+package info.sperber.chat;
 
 
 import java.net.Socket;

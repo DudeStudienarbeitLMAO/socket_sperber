@@ -5,8 +5,23 @@
   <artifactId>socket</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>socket</name>
-  <url>http://maven.apache.org</url>
+
+  <properties>
+    <restlet-version>3.0-M1</restlet-version>
+  </properties>
+  <repositories>
+    <repository>
+      <id>org_apache_maven</id>
+      <name>socket</name>
+      <url>http://maven.apache.org</url>
+    </repository>
+    <repository>
+      <id>com_mvnrepository</id>
+      <name>Restlet repository</name>
+      <url>http://maven.restlet.org</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -44,6 +59,23 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.6.0</version>
+    </dependency>
+
+    <!-- Restlet -->
+    <dependency>
+      <groupId>org.restlet.jse</groupId>
+      <artifactId>org.restlet</artifactId>
+      <version>${restlet-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.jse</groupId>
+      <artifactId>org.restlet.ext.jackson</artifactId>
+      <version>${restlet-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.jse</groupId>
+      <artifactId>org.restlet.ext.simple</artifactId>
+      <version>${restlet-version}</version>
     </dependency>
   </dependencies>
 </project>

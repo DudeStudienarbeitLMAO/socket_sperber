@@ -1,7 +1,6 @@
 package info.sperber.jpa.entities;
 
 import lombok.Data;
-import lombok.Setter;
 
 import javax.persistence.*;
 
